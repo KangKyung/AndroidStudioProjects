@@ -2,6 +2,8 @@ package com.example.rudgn.mylifecycle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -49,12 +51,21 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         Toast.makeText(this, "onPause() 호출됨", Toast.LENGTH_LONG).show();
 
-
+        SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("name", "강경");
+        editor.commit();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Toast.makeText(this, "onResume() 호출됨", Toast.LENGTH_LONG).show();
+
+        SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        if (pref != null) {
+            String name = pref.getString("name", " ");
+            Toast.makeText(this, "복구된 이름: " + name, Toast.LENGTH_LONG).show();
+        }
     }
 }
