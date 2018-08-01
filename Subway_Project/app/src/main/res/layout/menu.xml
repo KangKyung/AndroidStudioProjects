@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#489CFF">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M  E  N  U"
+            android:textSize="30dp"
+            android:textColor="#FFFFFF"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#489CFF"
+        android:layout_weight="2">
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="#E6FFFF"
+            android:text="SubWay Map(노선도)"
+            android:textSize="15dp"
+            android:layout_margin="10dp"
+            android:id="@+id/sub_map"
+            android:layout_above="@+id/restaurant"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="#E6FFFF"
+            android:text="Famous Restaurant(맛 집)"
+            android:textSize="15dp"
+            android:layout_margin="10dp"
+            android:id="@+id/restaurant"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"/>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="#E6FFFF"
+            android:text="Convenient Facilities(편의시설)"
+            android:textSize="15dp"
+            android:layout_margin="10dp"
+            android:id="@+id/con_fac"
+            android:layout_below="@+id/restaurant"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

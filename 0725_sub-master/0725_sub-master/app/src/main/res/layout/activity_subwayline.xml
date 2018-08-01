@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#489CFF">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="#489CFF">
+    </FrameLayout>
+
+    <TableLayout
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#489Cff">
+        <TableRow>
+            <Button
+                android:text="1 호선"
+                android:id="@+id/r1"/>
+            <Button
+                android:text="2 호선"
+                android:id="@+id/r2"/>
+            <Button
+                android:text="3 호선"
+                android:id="@+id/r3"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:text="4 호선"
+                android:id="@+id/r4"/>
+            <Button
+                android:text="5 호선"
+                android:id="@+id/r5"/>
+            <Button
+                android:text="6 호선"
+                android:id="@+id/r6"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:text="7호선"
+                android:id="@+id/r7"/>
+            <Button
+                android:text="8호선"
+                android:id="@+id/r8"/>
+            <Button
+                android:text="9호선"
+                android:id="@+id/r9"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:text="서울 지하철 노선도"
+                android:layout_span="3"
+                android:id="@+id/total"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:text="초 기 화"
+                android:layout_span="3"
+                android:id="@+id/reset"/>
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>
