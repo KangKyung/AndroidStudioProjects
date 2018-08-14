@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".MenuActivity" android:label="Menu 액티비티"/>
         <activity android:name=".SubwayLineActivity" android:label="SubwayLine 액티비티"/>
+        <activity android:name=".FamousRestaurant" android:label="FamousRestaurant 액티비티"/>
+        <activity android:name=".ConvenientFacilities" android:label="cccc 액티비티"/>
     </application>
 
 </manifest>

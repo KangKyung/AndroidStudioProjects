@@ -24,14 +24,13 @@
         />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="검 색"
         android:id="@+id/serch5"
         android:layout_below="@+id/input5"
         android:layout_marginBottom="10dp"
-
-
+        android:layout_centerHorizontal="true"
         />
 
 </RelativeLayout>

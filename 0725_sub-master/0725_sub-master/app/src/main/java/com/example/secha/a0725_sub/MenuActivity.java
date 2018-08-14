@@ -34,6 +34,11 @@ public class MenuActivity extends Activity {
         restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast tmsg=Toast.makeText(getApplicationContext(),"맛 집",Toast.LENGTH_SHORT);
+                tmsg.show();;//토스트 메세지
+
+                Intent intent=new Intent(getApplicationContext(),FamousRestaurant.class);
+                startActivity(intent);//액티비티 전환
 
             }
         });
@@ -41,6 +46,11 @@ public class MenuActivity extends Activity {
         con_fac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast tmsg=Toast.makeText(getApplicationContext(),"편의 시설",Toast.LENGTH_SHORT);
+                tmsg.show();;//토스트 메세지
+
+                Intent intent=new Intent(getApplicationContext(),ConvenientFacilities.class);
+                startActivity(intent);//액티비티 전환
 
             }
         });

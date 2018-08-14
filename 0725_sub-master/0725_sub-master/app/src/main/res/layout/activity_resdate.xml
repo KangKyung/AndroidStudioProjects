@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editRail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="호 선 입 력"
+        android:selectAllOnFocus="true"/>
+
+    <EditText
+        android:id="@+id/editRes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="맛 집 입 력"
+        android:selectAllOnFocus="true"/>
+
+    <EditText
+        android:id="@+id/editStation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="역 입 력"
+        android:selectAllOnFocus="true"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnInsert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="mOnClick"
+                android:text="삽 입"/>
+            <Button
+                android:id="@+id/btnAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="mOnClick"
+                android:text="전 체 검 색"/>
+            <Button
+                android:id="@+id/btnName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="mOnClick"
+                android:text="이 름 검 색"/>
+        </TableRow>
+    </TableLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="false"
+        android:padding="4dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textResult"
+            android:textSize="20dp"/>
+
+    </ScrollView>
+
+</LinearLayout>

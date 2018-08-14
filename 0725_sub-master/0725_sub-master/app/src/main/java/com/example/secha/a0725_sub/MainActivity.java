@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("SeChan_GangGyeong");
 
         train=(ImageView)findViewById(R.id.train);
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast tmsg=Toast.makeText(getApplicationContext(),"앱을 시작합니다.",Toast.LENGTH_SHORT);
-                tmsg.show();;//토스트 메세지
+                tmsg.show();//토스트 메세지
 
                 Intent intent=new Intent(getApplicationContext(),MenuActivity.class);
                 startActivity(intent);//액티비티 전환

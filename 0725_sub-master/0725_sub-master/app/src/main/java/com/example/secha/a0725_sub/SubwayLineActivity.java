@@ -115,6 +115,7 @@ public class SubwayLineActivity extends MenuActivity {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 inflater.inflate(R.layout.clear, container, true);
 
+
             }
         });
 
