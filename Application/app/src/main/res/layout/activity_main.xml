@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="130dp"
+android:orientation="horizontal"
+android:background="#FF0"
+android:gravity="right">
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:text="View 1" />
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:text="View 2" />
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:text="View 3" />
+
+</LinearLayout>
+
+
+    -->
+
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="300dp"
+android:orientation="horizontal">
+
+<Button
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="V1" />
+
+<Button
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="2"
+    android:text="V2" />
+
+<Button
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="3"
+    android:text="V3" />
+
+</LinearLayout>
+
+
+    -->
+
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="300dp"
+android:orientation="vertical"
+android:background="#FF0"
+android:weightSum="100">
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    android:layout_weight="10"
+    android:text="View 1" />
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    android:layout_weight="30"
+    android:text="View 2" />
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    android:layout_weight="50"
+    android:text="View 3" />
+
+</LinearLayout>
+
+    -->
+
+<!--
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="130dp"
+android:gravity="right"
+android:ignoreGravity="@+id/view2">
+
+<Button
+    android:layout_width="130dp"
+    android:layout_height="130dp"
+    android:text="View 1" />
+
+<Button android:id="@+id/view2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="View 2" />
+
+
+</RelativeLayout>
+-->
+
+<!--
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp">
+
+    <Button android:id="@+id/baseView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:text="BaseView" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/baseView"
+        android:layout_toLeftOf="@id/baseView"
+        android:text="1" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/baseView"
+        android:layout_alignLeft="@id/baseView"
+        android:text="2" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/baseView"
+        android:layout_alignRight="@id/baseView"
+        android:text="3" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/baseView"
+        android:layout_toRightOf="@id/baseView"
+        android:text="4" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_aligntoLeftOf="@id/baseView"
+        android:layout_alignTop="@id/baseView"
+        android:text="5" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_aligntoLeftOf="@id/baseView"
+        android:layout_below="@id/baseView"
+        android:text="12" />
+
+</RelativeLayout>
+-->
+
+<!--
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#FF0">
+
+    <TableRow>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View0X0" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View0X1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View0X2" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View1X0" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View1X1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View1X2" />
+    </TableRow>
+
+</TableLayout>
+-->
+
+<!--
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#FF0">
+
+    <TableRow>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View0X0" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View0X1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View0X2" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View1X0" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:text="View1X1" />
+
+    </TableRow>
+
+</TableLayout>
+-->
+
+<!-- 끝 -->
+
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="80dp"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="#FF0"
+        android:text="동햄ㄹ과 백두산이"/>
+
+    .. 나머진 생략..
+
+</LinearLayout>
+-->
+
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20px"
+    android:orientation="vertical">
+
+    <Button android:id="@+id/button_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="버튼" />
+</LinearLayout>
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20px"
+    android:orientation="vertical">
+
+    <Button android:id="@+id/button_view1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="버튼" />
+
+    <Button android:id="@+id/button_view2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="버튼" />
+</LinearLayout>

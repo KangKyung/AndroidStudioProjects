@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/Standard_Red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#FF0000"
+            android:text="Red" />
+
+        <TextView
+            android:id="@+id/Left_Orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Standard_Red"
+            android:layout_toLeftOf="@id/Standard_Red"
+            android:background="#FFCC00"
+            android:text="Orange" />
+
+        <TextView
+            android:id="@+id/Right_Orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Standard_Red"
+            android:layout_toRightOf="@id/Standard_Red"
+            android:background="#FFCC00"
+            android:text="Orange" />
+
+        <TextView
+            android:id="@+id/Left_Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Left_Orange"
+            android:layout_toLeftOf="@id/Left_Orange"
+            android:background="#008000"
+            android:text="Green" />
+
+        <TextView
+            android:id="@+id/Right_Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Right_Orange"
+            android:layout_toRightOf="@id/Right_Orange"
+            android:background="#008000"
+            android:text="Green" />
+
+        <TextView
+            android:id="@+id/Left_Yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Left_Green"
+            android:layout_toLeftOf="@id/Left_Green"
+            android:background="#FFFF00"
+            android:text="Yellow" />
+
+        <TextView
+            android:id="@+id/Right_Yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Right_Green"
+            android:layout_toRightOf="@id/Right_Green"
+            android:background="#FFFF00"
+            android:text="Yellow" />
+
+        <TextView
+            android:id="@+id/Left_Green_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Left_Yellow"
+            android:layout_toRightOf="@id/Left_Yellow"
+            android:background="#008000"
+            android:text="Green" />
+
+        <TextView
+            android:id="@+id/Right_Green_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Right_Yellow"
+            android:layout_toLeftOf="@id/Right_Yellow"
+            android:background="#008000"
+            android:text="Green" />
+
+        <TextView
+            android:id="@+id/Left_Orange_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Left_Green_2"
+            android:layout_toRightOf="@id/Left_Green_2"
+            android:background="#FFCC00"
+            android:text="Orange" />
+
+        <TextView
+            android:id="@+id/Right_Orange_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Right_Green_2"
+            android:layout_toLeftOf="@id/Right_Green_2"
+            android:background="#FFCC00"
+            android:text="Orange" />
+
+        <TextView
+            android:id="@+id/Bottom_Red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Right_Orange_2"
+            android:layout_toLeftOf="@id/Right_Orange_2"
+            android:background="#FF0000"
+            android:text="Red" />
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ExtraText"
+        android:layout_marginTop="50dp" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <EditText
+                android:id="@+id/Input_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:hint="Input Message!" />
+            />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="SEND" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
