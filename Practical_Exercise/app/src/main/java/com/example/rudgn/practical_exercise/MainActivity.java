@@ -1,9 +1,103 @@
 package com.example.rudgn.practical_exercise;
 
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.RadioGroup;
+class HelloAppActivity extends Activity
+        implements RadioGroup.OnCheckedChangeListener
+{
+    /** Called when the activity is first created. */
+
+    RadioGroup orientation;
+    ImageView img;
+    Drawable defaultImg;
+    Drawable blueImg;
+    Drawable redImg;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        img = (ImageView)findViewById(R.id.imageView1);
+
+        // 이 부분을 몰라서 엄청 헤맷네욤
+        defaultImg = getResources().getDrawable(R.drawable.spring);
+        blueImg = getResources().getDrawable(R.drawable.spring);
+        redImg = getResources().getDrawable(R.drawable.spring);
+
+        orientation = (RadioGroup)findViewById(R.id.radioGroup1);
+        orientation.setOnCheckedChangeListener(this);
+    }
+
+    public void onCheckedChanged(RadioGroup group, int checkedId)
+    {
+        if(group == orientation)
+        {
+            switch(checkedId)
+            {
+                case R.id.radio0:
+                    img.setImageDrawable(defaultImg);
+                    break;
+                case R.id.radio1:
+                    img.setImageDrawable(blueImg);
+                    break;
+                case R.id.radio2:
+                    img.setImageDrawable(redImg);
+                    break;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 다양한 터치 이벤트 인터페이스 구현 방법
 
 // 익명의 내부 클래스 구현
 
+/*
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +124,7 @@ public class MainActivity extends AppCompatActivity{
     }
 }
 
-
+*/
 
 
 
