@@ -13,7 +13,8 @@ public class MainActivity extends Activity {
 
     public void onMyButton(View v) {
         switch(v.getId())
-        case R.id.button_view1: {
+        case R.id
+                .button_view1: {
             Toast.makeText(this, "OnClick Event!!", Toast.LENGTH_LONG).show();
             break;
         }
