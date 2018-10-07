@@ -39,13 +39,6 @@ public class MainActivity extends AppCompatActivity {
         // final Intent intent2 = new Intent(this, BillActivity.class);
 
         // 수량 조절 버튼
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                amountresult1--;
-                amount1.setText(String.valueOf(amountresult1));
-            }
-        });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
