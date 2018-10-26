@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/Question2_textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Question2_button4"
+        android:layout_centerHorizontal="true"
+        android:text="입력 받은 시간은 X초 입니다." />
+
+    <Button
+        android:id="@+id/Question2_button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:onClick="onMyButtonClick"
+        android:text="SEND BACK" />
+
+</RelativeLayout>
