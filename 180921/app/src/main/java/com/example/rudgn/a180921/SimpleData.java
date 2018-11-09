@@ -27,3 +27,6 @@ public class SimpleData implements Serializable {
         mStrData = strData;
     }
 }
+
+
+

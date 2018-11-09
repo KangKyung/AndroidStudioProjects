@@ -1,84 +1,110 @@
 package com.example.rudgn.graduationprojectgps;
 
-import android.content.Context;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.ToggleButton;
+import android.widget.Toast;
 
-import static android.view.View.*;
+public class MainActivity extends Activity {
 
-public class MainActivity extends AppCompatActivity {
+    private Button btnShowLocation;
+    private TextView txtLat;
+    private TextView txtLon;
+    private final int PERMISSIONS_ACCESS_FINE_LOCATION = 1000;
+    private final int PERMISSIONS_ACCESS_COARSE_LOCATION = 1001;
+    private boolean isAccessFineLocation = false;
+    private boolean isAccessCoarseLocation = false;
+    private boolean isPermission = false;
 
-    TextView tv;
-    ToggleButton tb;
+    // GPSTracker class
+    private GpsInfo gps;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv = (TextView) findViewById(R.id.textView2);
-        tv.setText("위치정보 미수신중");
+        btnShowLocation = (Button) findViewById(R.id.btn_start);
+        txtLat = (TextView) findViewById(R.id.tv_latitude);
+        txtLon = (TextView) findViewById(R.id.tv_longitude);
 
-        tb = (ToggleButton)findViewById(R.id.toggle1);
+        // GPS 정보를 보여주기 위한 이벤트 클래스 등록
+        btnShowLocation.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                // 권한 요청을 해야 함
+                if (!isPermission) {
+                    callPermission();
+                    return;
+                }
 
-        final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                gps = new GpsInfo(MainActivity.this);
+                // GPS 사용유무 가져오기
+                if (gps.isGetLocation()) {
 
+                    double latitude = gps.getLatitude();
+                    double longitude = gps.getLongitude();
 
-        tb.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try{
-                    if(tb.isChecked()){
-                        tv.setText("수신중..");
-                        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                                100,
-                                1,
-                                mLocationListener);
-                        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
-                                100,
-                                1,
-                                mLocationListener);
-                    }else{
-                        tv.setText("위치정보 미수신중");
-                        lm.removeUpdates(mLocationListener);
-                    }
-                }catch(SecurityException ex){
+                    txtLat.setText(String.valueOf(latitude));
+                    txtLon.setText(String.valueOf(longitude));
+
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "위치 : \n현재 위도: " + latitude + "\n현재 경도: " + longitude,
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    // GPS 를 사용할수 없으므로
+                    gps.showSettingsAlert();
                 }
             }
         });
-    } // end of onCreate
 
-    private final LocationListener mLocationListener = new LocationListener() {
-        public void onLocationChanged(Location location) {
+        callPermission();  // 권한 요청을 해야 함
+    }
 
-            Log.d("test", "onLocationChanged, location:" + location);
-            double longitude = location.getLongitude();
-            double latitude = location.getLatitude();
-            double altitude = location.getAltitude();
-            float accuracy = location.getAccuracy();
-            String provider = location.getProvider();
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        if (requestCode == PERMISSIONS_ACCESS_FINE_LOCATION
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-            tv.setText("위치정보 : " + provider + "\n위도 : " + longitude + "\n경도 : " + latitude
-                    + "\n고도 : " + altitude + "\n정확도 : "  + accuracy);
+            isAccessFineLocation = true;
+
+        } else if (requestCode == PERMISSIONS_ACCESS_COARSE_LOCATION
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            isAccessCoarseLocation = true;
         }
 
-        public void onProviderDisabled(String provider) {
-            Log.d("test", "onProviderDisabled, provider:" + provider);
+        if (isAccessFineLocation && isAccessCoarseLocation) {
+            isPermission = true;
         }
+    }
 
-        public void onProviderEnabled(String provider) {
-            Log.d("test", "onProviderEnabled, provider:" + provider);
-        }
+    // 전화번호 권한 요청
+    private void callPermission() {
+        // Check the SDK version and whether the permission is already granted or not.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
 
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-            Log.d("test", "onStatusChanged, provider:" + provider + ", status:" + status + " ,Bundle:" + extras);
+            requestPermissions(
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSIONS_ACCESS_FINE_LOCATION);
+
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+
+            requestPermissions(
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                    PERMISSIONS_ACCESS_COARSE_LOCATION);
+        } else {
+            isPermission = true;
         }
-    };
+    }
 }
