@@ -21,7 +21,7 @@ public class OpenAirPollutionAPIClient {
     public AirPollution getAirPollution(String date, String location){
 
         AirPollution AP;
-        String urlString = openAirPollutionURL + "?date="+date+"&location="+location;
+        String urlString = openAirPollutionURL + date + "/" + location;
 
         try {
             // call API by using HTTPURLConnection
@@ -55,7 +55,7 @@ public class OpenAirPollutionAPIClient {
 
         }
 
-        // set Weather Object
+        // set AirPollution Object
         return AP;
     }
 
