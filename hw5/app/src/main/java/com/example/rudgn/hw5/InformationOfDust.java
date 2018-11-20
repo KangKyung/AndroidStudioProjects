@@ -14,6 +14,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import java.net.URL;
+import java.util.Calendar;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -23,7 +24,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
  */
 
 public class InformationOfDust extends AppCompatActivity {
-    final static String openAirPollutionURL ="http://www.kma.go.kr/wid/queryDFS.jsp";
+    final static String openAirPollutionURL ="http://openapi.seoul.go.kr:" +
+            "8088/634d5475466b3268363558586d7957/xml/DailyAverageAirQuality/1/1/";
     Document doc = null;
     TextView PM10;
     TextView PM25;
@@ -37,10 +39,21 @@ public class InformationOfDust extends AppCompatActivity {
         PM25 = (TextView)findViewById(R.id.PM25TextView2);
 
         Intent intent = getIntent();
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1;
+        String strMonth = String.valueOf(month);
+        if (month >=1 && month <= 9)
+            strMonth = "0" + strMonth;
+        int day = cal.get(Calendar.DATE);
+        String strDay = String.valueOf(day);
+        if (day >=1 && day <= 9)
+            strDay = "0" + strDay;
+        String date = String.valueOf(year) + strMonth + strDay;
         String location = intent.getExtras().getString("location2");
 
         GetXMLTask task = new GetXMLTask();
-        String urlString = openAirPollutionURL + "?gridx=61&gridy=" + location;
+        String urlString = openAirPollutionURL + date + "/" + location;
         task.execute(urlString);
     }
 
@@ -53,8 +66,8 @@ public class InformationOfDust extends AppCompatActivity {
             try {
                 url = new URL(urls[0]);
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-                DocumentBuilder db = dbf.newDocumentBuilder(); //XML문서 빌더 객체를 생성
-                doc = db.parse(new InputSource(url.openStream())); //XML문서를 파싱한다.
+                DocumentBuilder db = dbf.newDocumentBuilder();
+                doc = db.parse(new InputSource(url.openStream()));
                 doc.getDocumentElement().normalize();
 
             } catch (Exception e) {
@@ -68,21 +81,15 @@ public class InformationOfDust extends AppCompatActivity {
             String strPM10;
             String strPM25;
 
-            //data태그가 있는 노드를 찾아서 리스트 형태로 만들어서 반환
-            NodeList nodeList = doc.getElementsByTagName("data");
-            //data 태그를 가지는 노드를 찾음, 계층적인 노드 구조를 반환
+            NodeList nodeList = doc.getElementsByTagName("row");
 
-            //날씨 데이터를 추출
-            Node node = nodeList.item(0); //data엘리먼트 노드
+            Node node = nodeList.item(0);
             Element fstElmnt = (Element) node;
-            NodeList nameList  = fstElmnt.getElementsByTagName("temp");
-            Element nameElement = (Element) nameList.item(0);
-            nameList = nameElement.getChildNodes();
-            strPM10 = "미세먼지 테스트 텍스트입니다."+ ((Node) nameList.item(0)).getNodeValue() +" ,";
+            NodeList PM10List  = fstElmnt.getElementsByTagName("PM10");
+            NodeList PM25List  = fstElmnt.getElementsByTagName("PM25");
 
-            NodeList websiteList = fstElmnt.getElementsByTagName("wfKor");
-            //<wfKor>맑음</wfKor> =====> <wfKor> 태그의 첫번째 자식노드는 TextNode 이고 TextNode의 값은 맑음
-            strPM25 = "초미세먼지 테스트 텍스트입니다."+  websiteList.item(0).getChildNodes().item(0).getNodeValue();
+            strPM10 = PM10List.item(0).getChildNodes().item(0).getNodeValue();
+            strPM25 = PM25List.item(0).getChildNodes().item(0).getNodeValue();
 
             PM10.setText(strPM10);
             PM25.setText(strPM25);
