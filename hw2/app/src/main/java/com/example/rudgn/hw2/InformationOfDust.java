@@ -54,7 +54,7 @@ public class InformationOfDust extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            URL url = null;
+            URL url;
             Intent intent = getIntent();
             Calendar cal = Calendar.getInstance();
             int year = cal.get(Calendar.YEAR);
@@ -99,8 +99,6 @@ public class InformationOfDust extends AppCompatActivity {
     }
 
     void movieListjsonParser(String jsonString) {
-        StringBuffer sb = new StringBuffer();
-
         String strPM10;
         String strPM25;
 

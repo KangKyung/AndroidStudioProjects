@@ -60,7 +60,7 @@ public class InformationOfDate extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            URL url = null;
+            URL url;
             Intent intent = getIntent();
             String date = intent.getExtras().getString("date");
             String location = intent.getExtras().getString("location");
@@ -95,8 +95,6 @@ public class InformationOfDate extends AppCompatActivity {
     }
 
     void movieListjsonParser(String jsonString) {
-        StringBuffer sb = new StringBuffer();
-
         String strNO2;
         String strO3 ;
         String strCO;
