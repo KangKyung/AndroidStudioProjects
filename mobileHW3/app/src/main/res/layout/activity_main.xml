@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_centerVertical="true">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:text="TestApp"
+            android:textColor="#1266FF"/>
+        <TextView
+            android:id="@+id/txt_title_pend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="15sp"
+            android:text="test"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_singer_pend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="12sp"
+            android:text="test" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_pend"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_toLeftOf="@id/img_pend"
+        android:layout_marginRight="15dp"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical">
+        <ImageButton
+            android:id="@+id/music_prev"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/play_prev" />
+        <ImageButton
+            android:id="@+id/music_now"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/play_pause" />
+        <ImageButton
+            android:id="@+id/music_next"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/play_pre" />
+        <ImageButton
+            android:id="@+id/music_close"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/play_close" />
+    </LinearLayout>
+</RelativeLayout>
