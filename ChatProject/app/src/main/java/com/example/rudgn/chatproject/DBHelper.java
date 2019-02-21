@@ -1,4 +1,4 @@
-package com.example.practicesqlite;
+package com.example.rudgn.chatproject;
 
 import android.content.Context;
 import android.database.Cursor;

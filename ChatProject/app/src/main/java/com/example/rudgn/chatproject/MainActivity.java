@@ -13,7 +13,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private Button btn;
     private EditText nickname;
     public static final String NICKNAME = "usernickname";

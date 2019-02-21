@@ -49,5 +49,9 @@
                 />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/etDate"
+            android:text="TextView" />
+
     </LinearLayout>
 </RelativeLayout>
