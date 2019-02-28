@@ -36,7 +36,6 @@ public class ChatBoxActivity extends AppCompatActivity {
     public List<Message> MessageList ;
     public ChatBoxAdapter chatBoxAdapter;
     public  EditText messagetxt ;
-    public  Button send ;
     //declare socket object
     private Socket socket;
 
@@ -48,7 +47,10 @@ public class ChatBoxActivity extends AppCompatActivity {
 
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), "ChatRecord.db", null, 1);
 
+        etDate = (TextView) findViewById(R.id.etDate);  //  지워야하나?;
+
         // 날짜는 현재 날짜로 고정
+        handler = new ProgressHandler();
         // 현재 시간 구하기
         long now = System.currentTimeMillis();
         Date date = new Date(now);
@@ -58,7 +60,6 @@ public class ChatBoxActivity extends AppCompatActivity {
         runTime();
 
         messagetxt = (EditText) findViewById(R.id.message) ;
-        send = (Button)findViewById(R.id.send);
         // get the nickame of the user
         Nickname= (String)getIntent().getExtras().getString(MainActivity.NICKNAME);
         //connect you socket client to the server
@@ -78,15 +79,18 @@ public class ChatBoxActivity extends AppCompatActivity {
         myRecylerView.setItemAnimator(new DefaultItemAnimator());
 
         // message send action
+        // + DB에 데이터 추가
+        Button send = (Button)findViewById(R.id.send);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String date = etDate.getText().toString();
                 String nickname = Nickname;
                 EditText txt = messagetxt;
+                String txtData = txt.getText().toString();
 
-                dbHelper.send(date, nickname, txt); //  이 ㅅㅂ 센드 해결중이었음
-                result.setText(dbHelper.getResult());
+                dbHelper.send(date, nickname, txtData);
+                messagetxt.setText(dbHelper.getResult());   //  messagetxt 맞나? ..
 
                 //retrieve the nickname and the message content and fire the event messagedetection
                 if(!messagetxt.getText().toString().isEmpty()){
